@@ -1,0 +1,7 @@
+ def acceleration(self):
+        """The accelerometer X, Y, Z axis values as a 3-tuple of
+        m/s^2 values.
+        """
+        raw = self.read_accel_raw()
+        return map(lambda x: x * self._accel_mg_lsb / 1000.0 * _SENSORS_GRAVITY_STANDARD,
+                   raw)
